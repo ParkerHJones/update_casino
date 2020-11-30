@@ -14,20 +14,20 @@ class Game_One  # this is the odds or even created game
         puts rand(1..2)
 
         if choice == rand(1..2)
-            puts "Nice! You won $10"
+            puts "Nice! You won $10".colorize(:magenta)
             @person.wallet += 10 #goal is to add 10 to bankroll if won
         elsif choice != rand(1..2)
-            puts "oops! you lost $10"
+            puts "oops! you lost $10".colorize(:magenta)
             @person.wallet -= 10
               #goal is to take ten out if losing
         end 
 
-        puts "Would you like to play again? Press 1. for Yes 2. for No." 
+        puts "Would you like to play again? Press 1. for Yes 2. for No.".colorize(:magenta) 
         choice = gets.to_f
         if choice == 1 
          play
         elsif choice == 2
-        puts "go to menu"
+        puts "go to menu".colorize(:magenta)
         Casino.Jones(display_menu)
         end 
     end 

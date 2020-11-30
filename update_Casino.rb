@@ -1,6 +1,8 @@
-require 'colorize'
+require 'colorize' #using this to portray that game is communicating to user
 require_relative 'person'
 require_relative 'Game_One'
+require_relative 'Game_Two'
+require_relative 'Game_Three'
 
 
 class CasinoJones
@@ -11,7 +13,7 @@ class CasinoJones
 
     def display_menu
         begin
-            puts "Please select what you would like to do".colorize(:magenta)
+            puts "Please select what you would like to do #{@person.name}".colorize(:magenta)
             puts "You have $100 in your bankroll to begin.".colorize(:magenta)
             puts "In each game you can either win $10 per play or lose $10 per play.".colorize(:magenta)
             puts "1. Play Odds/Evens"
@@ -26,14 +28,16 @@ class CasinoJones
                 Game_One.new(@person)
                 # todo: Odds/Evens 
             when 2
-                
+                Game_Two.new(@person)
                 # high/low
             when 3
+                Game_Three.new(@person)
                 # slots 
             when 4
-                puts "You have $#{@person.wallet}"
+                puts "You have $#{@person.wallet}".colorize(:magenta)
+                display_menu
             when 5
-                puts "See you next time"
+                puts "See you next time".colorize(:magenta)
                 exit 
             else 
                 raise 
